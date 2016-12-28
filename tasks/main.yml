@@ -1,0 +1,30 @@
+---
+- name: resolve platform specific vars
+  include_vars: "{{item}}"
+  with_first_found:
+    - files:
+        - "{{ansible_distribution}}-{{ansible_distribution_release}}.yml"
+        - "{{ansible_distribution}}.yml"
+        - "{{ansible_os_family}}.yml"
+      skip: true
+      
+- name: extra dirs
+  become: yes
+  become_user: root
+  with_items: '{{extra_dirs|default([])}}'
+  file: >-
+    path={{item}}
+    state=directory
+    mode=0755
+
+- name: extra links
+  become: yes
+  become_user: root
+  with_items: '{{extra_links|default([])}}'
+  file: >-
+    src={{item.src}}
+    dest={{item.dest}}
+    state=link
+
+
+    
