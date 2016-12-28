@@ -1,0 +1,27 @@
+---
+- name: pkg deps
+  command: apk add --no-cache --virtual=.build-dependencies wget ca-certificates
+
+- name: download/install key
+  get_url: >-
+    url={{alpine_glibc_shim_key_url}}
+    dest=/etc/apk/keys/{{alpine_glibc_shim_key}}
+
+- name: download pkgs...
+  with_items: '{{alpine_glibc_shim_pkg_prefixes}}'
+  get_url: >-
+    url={{alpine_glibc_shim_mirror}}/{{alpine_glibc_shim_ver}}/{{item}}-{{alpine_glibc_shim_ver}}.apk
+    dest=/tmp/{{item}}-{{alpine_glibc_shim_ver}}.apk
+    mode=0644
+
+- name: install pkgs...
+  with_items: '{{alpine_glibc_shim_pkg_prefixes}}'
+  command: apk add --no-cache /tmp/{{item}}-{{alpine_glibc_shim_ver}}.apk
+
+- name: shells...
+  with_items:
+    - '/usr/glibc-compat/bin/localedef --force --inputfile POSIX --charmap UTF-8 C.UTF-8'
+    - 'echo "export LANG=C.UTF-8" > /etc/profile.d/locale.sh'
+    - 'apk del glibc-i18n'
+    - 'apk del .build-dependencies'
+  shell: '{{{item}}'
