@@ -24,4 +24,4 @@
     - 'echo "export LANG=C.UTF-8" > /etc/profile.d/locale.sh'
     - 'apk del glibc-i18n'
     - 'apk del .build-dependencies'
-  shell: '{{{item}}'
+  shell: '{{item}}'
