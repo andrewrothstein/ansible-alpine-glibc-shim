@@ -20,6 +20,7 @@
 
 - name: fix locales...
   command: /usr/glibc-compat/bin/localedef --force --inputfile POSIX --charmap UTF-8 C.UTF-8
+  ignore_errors: True
 
 - name: template default local for sh
   with_items:
