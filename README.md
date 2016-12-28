@@ -1,7 +1,7 @@
 andrewrothstein.alpine-glibc-shim
 =========
 
-See this [link](http://stackoverflow.com/questions/34729748/installed-go-binary-not-found-in-path-on-alpine-linux-docker)
+Mostly piece together from [alpine-pkg-glibc](https://github.com/sgerrand/alpine-pkg-glibc) and [docker-alpine-glibc](https://github.com/frol/docker-alpine-glibc)
 
 Requirements
 ------------
