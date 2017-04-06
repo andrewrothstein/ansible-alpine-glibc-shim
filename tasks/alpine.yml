@@ -3,16 +3,16 @@
   command: apk add --no-cache --virtual=.build-dependencies wget ca-certificates
 
 - name: download/install key
-  get_url: >-
-    url={{alpine_glibc_shim_key_url}}
-    dest=/etc/apk/keys/{{alpine_glibc_shim_key}}
+  get_url:
+    url: '{{alpine_glibc_shim_key_url}}'
+    dest: /etc/apk/keys/{{alpine_glibc_shim_key}}
 
 - name: download pkgs...
   with_items: '{{alpine_glibc_shim_pkg_prefixes}}'
-  get_url: >-
-    url={{alpine_glibc_shim_mirror}}/{{alpine_glibc_shim_ver}}/{{item}}-{{alpine_glibc_shim_ver}}.apk
-    dest=/tmp/{{item}}-{{alpine_glibc_shim_ver}}.apk
-    mode=0644
+  get_url:
+    url: '{{alpine_glibc_shim_mirror}}/{{alpine_glibc_shim_ver}}/{{item}}-{{alpine_glibc_shim_ver}}.apk'
+    dest: /tmp/{{item}}-{{alpine_glibc_shim_ver}}.apk
+    mode: 0644
 
 - name: install pkgs...
   with_items: '{{alpine_glibc_shim_pkg_prefixes}}'
@@ -24,13 +24,16 @@
 
 - name: template default local for sh
   with_items:
-    - locale.sh
-  template: >-
-    src={{item}}.j2
-    dest=/etc/profile.d/{{item}}
+    - f: locale.sh
+      d: /etc/profile.d
+      m: '0644'
+  template:
+    src: '{{item.f}}.j2'
+    dest: '{{item.d}}/{{item.f}}'
+    mode: '{{item.m}}'
   
 - name: cleanup...
   with_items:
     - 'apk del glibc-i18n'
     - 'apk del .build-dependencies'
-  shell: '{{item}}'
+  command: '{{item}}'

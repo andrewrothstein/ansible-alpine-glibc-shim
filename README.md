@@ -1,3 +1,4 @@
+[![CircleCI](https://circleci.com/gh/andrewrothstein/alpine-pkg-glibc-shim.svg?style=svg)](https://circleci.com/gh/andrewrothstein/alpine-pkg-glibc-shim)
 andrewrothstein.alpine-glibc-shim
 =========
 
