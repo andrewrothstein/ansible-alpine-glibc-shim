@@ -12,6 +12,10 @@ addons:
     packages:
       - python-pip
 
+branches:
+  except:
+    - /^v\d+\.\d+(\.\d+)?(-\S*)?$/
+
 env:
   - OS=alpine_3.3
   - OS=alpine_3.4
@@ -21,10 +25,6 @@ env:
 before_install:
   - pip install ansible-galaxy-local-deps dcb==0.0.14
   - ansible-galaxy-local-deps-write
-
-branches:
-  except:
-    - /^v\d+\.\d+(\.\d+)?(-\S*)?$/
 
 script:
   - >-
