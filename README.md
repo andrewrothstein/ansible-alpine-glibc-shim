@@ -1,4 +1,4 @@
-[![CircleCI](https://circleci.com/gh/andrewrothstein/alpine-pkg-glibc-shim.svg?style=svg)](https://circleci.com/gh/andrewrothstein/alpine-pkg-glibc-shim)
+[![Build Status](https://travis-ci.org/andrewrothstein/ansible-alpine-glibc-shim.svg?branch=master)](https://travis-ci.org/andrewrothstein/ansible-alpine-glibc-shim)
 andrewrothstein.alpine-glibc-shim
 =========
 
