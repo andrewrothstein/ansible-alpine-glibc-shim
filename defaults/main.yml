@@ -2,7 +2,7 @@
 alpine_glibc_shim_key_mirror: https://raw.githubusercontent.com/andyshinn/alpine-pkg-glibc/master
 alpine_glibc_shim_key: sgerrand.rsa.pub
 alpine_glibc_shim_mirror: https://github.com/sgerrand/alpine-pkg-glibc/releases/download
-alpine_glibc_shim_ver: '2.23-r3'
+alpine_glibc_shim_ver: '2.25-r1'
 alpine_glibc_shim_pkg_prefixes:
   - glibc
   - glibc-bin
