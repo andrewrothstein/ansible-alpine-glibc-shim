@@ -34,6 +34,6 @@
   
 - name: cleanup...
   with_items:
-    - 'apk del glibc-i18n'
-    - 'apk del .build-dependencies'
-  command: '{{item}}'
+    - glibc-i18n
+    - .build-dependencies
+  command: apk del {{item}}
