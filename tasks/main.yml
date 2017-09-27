@@ -3,4 +3,4 @@
   when: ansible_os_family == 'Alpine'
   become: yes
   become_user: root
-  include: alpine.yml
+  include_tasks: alpine.yml
