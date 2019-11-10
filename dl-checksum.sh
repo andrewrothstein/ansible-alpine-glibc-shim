@@ -21,7 +21,7 @@ dl()
 
 dlver () {
     local ver=$1
-    printf "  '%s'\n" $ver
+    printf "  '%s':\n" $ver
     dl $ver glibc
     dl $ver glibc-bin
     dl $ver glibc-i18n
