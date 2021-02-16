@@ -4,24 +4,24 @@
   become_user: root
   command: apk add --no-cache --virtual=.build-dependencies wget ca-certificates
 
-- name: download/install key
+- name: downloading {{ alpine_glibc_shim_key_url }} to {{ alpine_glibc_shim_key_path }}
   become: yes
   become_user: root
   get_url:
     url: '{{ alpine_glibc_shim_key_url }}'
-    dest: /etc/apk/keys/{{ alpine_glibc_shim_key }}
+    dest: '{{ alpine_glibc_shim_key_path }}'
 
-- name: download pkgs...
+- name: downloading v{{ alpine_glibc_shim_ver }} pkgs from {{ alpine_glibc_shim_mirror }}...
   become: yes
   become_user: root
   with_items: '{{ alpine_glibc_shim_pkg_prefixes }}'
   get_url:
-    url: '{{ alpine_glibc_shim_mirror }}/{{ alpine_glibc_shim_ver }}/{{ item }}-{{ alpine_glibc_shim_ver }}.apk'
+    url: '{{ alpine_glibc_shim_mirror_ver }}/{{ item }}-{{ alpine_glibc_shim_ver }}.apk'
     dest: /tmp/{{ item }}-{{ alpine_glibc_shim_ver }}.apk
     checksum: '{{ alpine_glibc_shim_checksums[alpine_glibc_shim_ver][item] }}'
     mode: 0644
 
-- name: install pkgs...
+- name: installing v{{ alpine_glibc_shim_ver }} pkgs...
   become: yes
   become_user: root
   with_items: '{{ alpine_glibc_shim_pkg_prefixes }}'
