@@ -27,4 +27,4 @@ dlver () {
     dl $ver glibc-i18n
 }
 
-dlver ${1:-2.32-r0}
+dlver ${1:-2.33-r0}
