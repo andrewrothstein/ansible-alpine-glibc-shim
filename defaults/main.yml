@@ -2,7 +2,7 @@
 alpine_glibc_shim_key_mirror: https://alpine-pkgs.sgerrand.com
 alpine_glibc_shim_key: sgerrand.rsa.pub
 alpine_glibc_shim_mirror: https://github.com/sgerrand/alpine-pkg-glibc/releases/download
-alpine_glibc_shim_ver: '2.33-r0'
+alpine_glibc_shim_ver: '2.34-r0'
 alpine_glibc_shim_pkg_prefixes:
   - glibc
   - glibc-bin
@@ -57,3 +57,10 @@ alpine_glibc_shim_checksums:
     glibc-bin: sha256:f862ce6d61b294859f3facd1dae347e7bc5e36714649a37d2a785e7d7a3af84e
     # https://github.com/sgerrand/alpine-pkg-glibc/releases/download/2.33-r0/glibc-i18n-2.33-r0.apk
     glibc-i18n: sha256:be3a55e6366a2ddaecf17203a7e71966757dca47a25ce34b5f3d6dd1e1efee55
+  '2.34-r0':
+    # https://github.com/sgerrand/alpine-pkg-glibc/releases/download/2.34-r0/glibc-2.34-r0.apk
+    glibc: sha256:3ef4a8d71777b3ccdd540e18862d688e32aa1c7bc5a1c0170271a43d0e736486
+    # https://github.com/sgerrand/alpine-pkg-glibc/releases/download/2.34-r0/glibc-bin-2.34-r0.apk
+    glibc-bin: sha256:cc631135f481644ce74b28f6e37ceea848de06389d669182a012a9ca1ac5a95a
+    # https://github.com/sgerrand/alpine-pkg-glibc/releases/download/2.34-r0/glibc-i18n-2.34-r0.apk
+    glibc-i18n: sha256:265e3cd7e958be00e3aa16b7713e958d7eaa43290d0aab89ae6fc80267e18dd4
