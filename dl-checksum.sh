@@ -12,7 +12,7 @@ dl()
 
     if [ ! -e $lfile ];
     then
-        wget -q -O $lfile $url
+        curl -sSLf -o $lfile $url
     fi
 
     printf "    # %s\n" $url
@@ -27,4 +27,4 @@ dlver () {
     dl $ver glibc-i18n
 }
 
-dlver ${1:-2.34-r0}
+dlver ${1:-2.35-r0}
