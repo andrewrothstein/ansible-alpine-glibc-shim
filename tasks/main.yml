@@ -1,4 +1,4 @@
 ---
 - name: fix alpine
-  when: ansible_os_family == 'Alpine'
+  when: ansible_os_family == 'Alpine' and ansible_architecture == "x86_64"
   include_tasks: alpine.yml
