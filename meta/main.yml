@@ -12,3 +12,4 @@ galaxy_info:
         - all
   galaxy_tags:
     - development
+  role_name: alpine-glibc-shim
